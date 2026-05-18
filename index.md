@@ -1,22 +1,20 @@
-# DBIS VTree
+---
+layout: home
+---
 
 Research project from the DBIS Lab at Santa Clara University.
-VTree: A LSM-Native Vector Index for Analytical Databases".  
+**VTree: A LSM-Native Vector Index for Analytical Databases.**
 The implementation is built on top of [Apache AsterixDB](https://asterixdb.apache.org/) and extends it with columnar storage and vector indexing support.
-
 
 ## Latest Documentation
 
-https://docs.google.com/document/d/1czT1GPbSAZcGGvTpFlzphF5THeiS08D8guBR_d6VsnQ/edit?tab=t.0
+[Latest documentation (Google Doc)](https://docs.google.com/document/d/1czT1GPbSAZcGGvTpFlzphF5THeiS08D8guBR_d6VsnQ/edit?tab=t.0)
 
-### Example with GIST dataset
+### GIST-960 Example (Using the `open-vdb/gist-960-euclidean` Dataset)
 
-### GIST‑960 Example (Using the `open-vdb/gist-960-euclidean` Dataset)
+This example demonstrates how to load the **GIST-960** dataset from Hugging Face and build a vector index in AsterixDB using the columnar storage format.
 
-This example demonstrates how to load the **GIST‑960** dataset from Hugging Face and build a vector index in AsterixDB using the columnar storage format.
-
-Dataset:  
-[https://huggingface.co/datasets/open-vdb/gist-960-euclidean](https://huggingface.co/datasets/open-vdb/gist-960-euclidean)
+Dataset: [open-vdb/gist-960-euclidean on Hugging Face](https://huggingface.co/datasets/open-vdb/gist-960-euclidean)
 
 ---
 
@@ -53,7 +51,7 @@ USE VectorTest;
 DROP INDEX GIST.ix_vtree IF EXISTS;
 
 CREATE INDEX ix_vtree
-ON Movie(embedding VECTOR)
+ON GIST(embedding VECTOR)
 INCLUDE(title, vote_average, revenue)
 TYPE VTREE
 WITH {
@@ -73,19 +71,14 @@ ORDER BY ANN_DISTANCE(m.embedding, qvec, "cosine")
 LIMIT 10;
 ```
 
+## AsterixDB APE for VTree
 
-
-## ASTERIXDB APE FOR VTREE
-
-https://cwiki.apache.org/confluence/display/ASTERIXDB/APE+31%3A+Vector+Index
+[APE 31: Vector Index (Apache AsterixDB wiki)](https://cwiki.apache.org/confluence/display/ASTERIXDB/APE+31%3A+Vector+Index)
 
 ## Source Code
 
-https://github.com/calvin-dani/asterixdb-schema-knn/tree/gerrit-build
+[AsterixDB schema / KNN branch (`gerrit-build`)](https://github.com/calvin-dani/asterixdb-schema-knn/tree/gerrit-build)
 
+## VLDB 2026 Experiment and AWS Config Source Code
 
-## VLDB 2026 Experiement and AWS config source code
-
-https://github.com/shivajah/VTree-VLDB2026
-
-
+[VTree-VLDB2026](https://github.com/shivajah/VTree-VLDB2026)

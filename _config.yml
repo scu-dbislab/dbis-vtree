@@ -2,4 +2,13 @@ title: DBIS VTree
 description: Research project page for DBIS VTree
 theme: minima
 
+url: https://scu-dbislab.github.io
+baseurl: /dbis-vtree
+
 markdown: kramdown
+
+# Single-page site: no duplicate nav link in the header
+header_pages: []
+
+titles_from_headings:
+  enabled: false
