@@ -48,6 +48,32 @@ LOAD DATASET GIST USING localfs (
 );
 ```
 
+```sql
+USE VectorTest;
+
+DROP INDEX GIST.ix_vtree IF EXISTS;
+
+CREATE INDEX ix_vtree
+ON Movie(embedding VECTOR)
+INCLUDE(title, vote_average, revenue)
+TYPE VTREE
+WITH {
+    "dimension"           : 960,
+    "similarity"          : "cosine"
+} EXCLUDE UNKNOWN KEY;
+
+```
+
+```sql
+USE VectorTest;
+
+FROM GIST m
+LET qvec = [ /* 960-dimensional query vector */ ]
+SELECT m.k
+ORDER BY ANN_DISTANCE(m.embedding, qvec, "cosine")
+LIMIT 10;
+```
+
 
 
 ## ASTERIXDB APE FOR VTREE
