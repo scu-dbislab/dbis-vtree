@@ -1,6 +1,9 @@
 # DBIS VTree
 
 Research project from the DBIS Lab at Santa Clara University.
+VTree: A LSM-Native Vector Index for Analytical Databases".  
+The implementation is built on top of [Apache AsterixDB](https://asterixdb.apache.org/) and extends it with columnar storage and vector indexing support.
+
 
 ## About
 
@@ -10,7 +13,7 @@ DBIS VTree focuses on ...
 
 https://docs.google.com/document/d/1czT1GPbSAZcGGvTpFlzphF5THeiS08D8guBR_d6VsnQ/edit?tab=t.0
 
-## EXAMPLE WITH GIST DATASET
+### Example with GIST dataset
 
 ### GIST‑960 Example (Using the `open-vdb/gist-960-euclidean` Dataset)
 
