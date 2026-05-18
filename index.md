@@ -52,7 +52,6 @@ DROP INDEX GIST.ix_vtree IF EXISTS;
 
 CREATE INDEX ix_vtree
 ON GIST(embedding VECTOR)
-INCLUDE(title, vote_average, revenue)
 TYPE VTREE
 WITH {
     "dimension"           : 960,
