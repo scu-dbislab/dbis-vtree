@@ -5,10 +5,6 @@ VTree: A LSM-Native Vector Index for Analytical Databases".
 The implementation is built on top of [Apache AsterixDB](https://asterixdb.apache.org/) and extends it with columnar storage and vector indexing support.
 
 
-## About
-
-DBIS VTree focuses on ...
-
 ## Latest Documentation
 
 https://docs.google.com/document/d/1czT1GPbSAZcGGvTpFlzphF5THeiS08D8guBR_d6VsnQ/edit?tab=t.0
